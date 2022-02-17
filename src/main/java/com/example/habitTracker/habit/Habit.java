@@ -12,7 +12,7 @@ public class Habit {
             sequenceName = "habit_sequence",
             allocationSize = 1
     )
-    @GeneratedValue (
+    @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "habit_sequence"
     )
@@ -407,5 +407,104 @@ public class Habit {
 
     public void setDay31(Boolean day31) {
         this.day31 = day31;
+    }
+
+    public void setDay(Integer dayIn) {
+        switch (dayIn) {
+            case 1:
+                this.day1 = !this.day1;
+                break;
+            case 2:
+                this.day2 = !this.day2;
+                break;
+            case 3:
+                this.day3 = !this.day3;
+                break;
+            case 4:
+                this.day4 = !this.day4;
+                break;
+            case 5:
+                this.day5 = !this.day5;
+                break;
+            case 6:
+                this.day6 = !this.day6;
+                break;
+            case 7:
+                this.day7 = !this.day7;
+                break;
+            case 8:
+                this.day8 = !this.day8;
+                break;
+            case 9:
+                this.day9 = !this.day9;
+                break;
+            case 10:
+                this.day10 = !this.day10;
+                break;
+            case 11:
+                this.day11 = !this.day11;
+                break;
+            case 12:
+                this.day12 = !this.day12;
+                break;
+            case 13:
+                this.day13 = !this.day13;
+                break;
+            case 14:
+                this.day14 = !this.day14;
+                break;
+            case 15:
+                this.day15 = !this.day15;
+                break;
+            case 16:
+                this.day16 = !this.day16;
+                break;
+            case 17:
+                this.day17 = !this.day17;
+                break;
+            case 18:
+                this.day18 = !this.day18;
+                break;
+            case 19:
+                this.day19 = !this.day19;
+                break;
+            case 20:
+                this.day20 = !this.day20;
+                break;
+            case 21:
+                this.day21 = !this.day21;
+                break;
+            case 22:
+                this.day22 = !this.day22;
+                break;
+            case 23:
+                this.day23 = !this.day23;
+                break;
+            case 24:
+                this.day24 = !this.day24;
+                break;
+            case 25:
+                this.day25 = !this.day25;
+                break;
+            case 26:
+                this.day26 = !this.day26;
+                break;
+            case 27:
+                this.day27 = !this.day27;
+                break;
+            case 28:
+                this.day28 = !this.day28;
+                break;
+            case 29:
+                this.day29 = !this.day29;
+                break;
+            case 30:
+                this.day30 = !this.day30;
+                break;
+            case 31:
+                this.day31 = !this.day31;
+                break;
+        }
+
     }
 }
