@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200") // needed for angular site to be on one port (4200) and api on the other (8080)
+@CrossOrigin // needed for front end site to be on one port (3000) and api on the other (8080)
 @RequestMapping(path = "api/habits")
 public class HabitController {
 

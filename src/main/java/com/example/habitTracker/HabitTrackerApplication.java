@@ -11,5 +11,4 @@ public class HabitTrackerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(HabitTrackerApplication.class, args);
 	}
-
 }
