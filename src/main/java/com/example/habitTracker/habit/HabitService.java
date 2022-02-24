@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class HabitService {
@@ -19,6 +20,10 @@ public class HabitService {
 
     public List<Habit> getHabits() {
         return habitRepository.findAll();
+    }
+
+    public List<Habit> getHabits(String year, String month) {
+        return habitRepository.findHabitByYearAndMonth(year, month);
     }
 
     public void addNewHabit(Habit habit) {
@@ -37,7 +42,7 @@ public class HabitService {
     }
 
     @Transactional
-    public void updateHabit(Long habitId, String name, Integer year, String month, Integer day) {
+    public void updateHabit(Long habitId, String name, String year, String month, Integer day) {
 
         Habit habit = habitRepository.findById(habitId).orElseThrow(() ->
                 new IllegalStateException(
@@ -48,7 +53,7 @@ public class HabitService {
             habit.setName(name);
         }
 
-        if (year != null && (year < 2050 && year > 2022)) {
+        if (year != null && (Integer.parseInt(year) < 2050 && Integer.parseInt(year) > 2022)) {
             habit.setYear(year);
         }
 

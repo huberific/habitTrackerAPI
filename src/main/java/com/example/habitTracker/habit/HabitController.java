@@ -17,9 +17,14 @@ public class HabitController {
         this.habitService = habitService;
     }
 
-    @GetMapping
-    public List<Habit> getHabits() {
-        return habitService.getHabits();
+//    @GetMapping
+//    public List<Habit> getHabits() {
+//        return habitService.getHabits();
+//    }
+
+    @GetMapping(path = "/{year}/{month}")
+    public List<Habit> getHabits(@PathVariable ("year") String year, @PathVariable("month") String month) {
+       return habitService.getHabits(year, month) ;
     }
 
     @PostMapping
@@ -36,7 +41,7 @@ public class HabitController {
     public void updateHabit(
             @PathVariable("habitId") Long habitId,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) Integer year,
+            @RequestParam(required = false) String year,
             @RequestParam(required = false) String month,
             @RequestParam(required = false) Integer day) {
         habitService.updateHabit(habitId, name, year, month, day);
