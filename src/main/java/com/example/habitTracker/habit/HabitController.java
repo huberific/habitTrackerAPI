@@ -17,11 +17,6 @@ public class HabitController {
         this.habitService = habitService;
     }
 
-//    @GetMapping
-//    public List<Habit> getHabits() {
-//        return habitService.getHabits();
-//    }
-
     @GetMapping(path = "/{year}/{month}")
     public List<Habit> getHabits(@PathVariable ("year") String year, @PathVariable("month") String month) {
        return habitService.getHabits(year, month) ;

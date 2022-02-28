@@ -13,11 +13,11 @@ public class HabitConfig {
     CommandLineRunner commandLineRunner(HabitRepository repository) {
         return args -> {
             Habit myHabit1 = new Habit(
-                    "meditate", "2022", "January",
+                    "meditate", "2022", "February",
                     true, true, true, false, true, false, true, false,
                     false, false, true, true, true, false, true, false,
                     true, true, true, false, true, false, true, true,
-                    false, false, false, true, true, true, false
+                    false, false, false, false, true, true, false
             );
 
             Habit myHabit2 = new Habit(
@@ -29,7 +29,7 @@ public class HabitConfig {
             );
 
             Habit myHabit3 = new Habit(
-                    "100 pushups", "2022", "January",
+                    "100 pushups", "2022", "February",
                     true, true, true, true, true, true, true, true,
                     true, true, true, true, false, true, true, true,
                     true, true, false, true, true, true, false, true,
