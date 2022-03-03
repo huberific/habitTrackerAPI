@@ -35,10 +35,11 @@ public class HabitController {
     @PutMapping(path = "{habitId}")
     public void updateHabit(
             @PathVariable("habitId") Long habitId,
+            @RequestParam(required = false) String habitNum,
             @RequestParam(required = false) String name,
             @RequestParam(required = false) String year,
             @RequestParam(required = false) String month,
             @RequestParam(required = false) Integer day) {
-        habitService.updateHabit(habitId, name, year, month, day);
+        habitService.updateHabit(habitId, habitNum, name, year, month, day);
     }
 }

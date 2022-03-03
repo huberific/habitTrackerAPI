@@ -15,4 +15,7 @@ public interface HabitRepository extends JpaRepository<Habit, Long>{
 
     @Query("SELECT h FROM Habit h WHERE h.year = ?1 and h.month = ?2")
     List<Habit> findHabitByYearAndMonth(String year, String month);
+
+    @Query("SELECT h FROM Habit h WHERE h.habitNum = ?1 and h.year = ?2 and h.month = ?3")
+    Optional<Habit> findHabitByHabitNumAndYearAndMonth(String habitNum, String year, String month);
 }

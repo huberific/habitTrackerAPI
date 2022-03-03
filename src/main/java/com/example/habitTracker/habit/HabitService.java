@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class HabitService {
@@ -41,19 +42,35 @@ public class HabitService {
     }
 
     @Transactional
-    public void updateHabit(Long habitId, String name, String year, String month, Integer day) {
+    public void updateHabit(Long habitId, String habitNum, String name, String year, String month, Integer day) {
 
-        Habit habit = habitRepository.findById(habitId).orElseThrow(() ->
-                new IllegalStateException(
-                        "habit with id " + habitId + " does not exist!"
-                ));
+        Optional<Habit> habit;
 
-        if (name != null && name.length() > 0 && !Objects.equals(habit.getName(), name)) {
-            habit.setName(name);
+        try {
+            habit = habitRepository.findHabitByHabitNumAndYearAndMonth(habitNum, year, month);
+        } catch (IllegalStateException ise) {
+            System.out.println("habit with id " + habitId + " does not exist!");
+            return;
+        }
+
+        int habitNumber = Integer.parseInt(habitNum);
+
+        final int NUMBER_OF_HABITS = 3;
+
+        if (habitNumber > 0 && habitNumber <= NUMBER_OF_HABITS) {
+            habit.ifPresent(habitObj -> habitObj.setHabitNum(habitNum));
+        }
+
+        if (name != null && name.length() > 0) {
+            habit.ifPresent(habitObj -> {
+                if (!Objects.equals(habitObj.getName(), name)) {
+                    habitObj.setName(name);
+                }
+            });
         }
 
         if (year != null && (Integer.parseInt(year) < 2050 && Integer.parseInt(year) > 2022)) {
-            habit.setYear(year);
+            habit.ifPresent(habitObj -> habitObj.setYear(year));
         }
 
         if (month != null && (month.equals("January") || month.equals("February") ||
@@ -62,10 +79,10 @@ public class HabitService {
                 month.equals("July") || month.equals("August") ||
                 month.equals("September") || month.equals("October") ||
                 month.equals("November") || month.equals("December"))) {
-            habit.setMonth(month);
+            habit.ifPresent(habitObj -> habitObj.setMonth(month));
         }
 
-        if(day != null && day > 0 && day < 32)
-            habit.setDay(day);
+        if (day != null && day > 0 && day < 32)
+            habit.ifPresent(habitObj -> habitObj.setDay(day));
     }
 }

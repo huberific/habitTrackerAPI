@@ -18,6 +18,7 @@ public class Habit {
     )
 
     private Long id;
+    private String habitNum;
     private String name;
     private String year;
     private String month;
@@ -56,6 +57,7 @@ public class Habit {
     // constructor
     public Habit() {
         this.id = 1L;
+        this.habitNum = "NA";
         this.name = "NA";
         this.year = "0";
         this.month = "NA";
@@ -92,7 +94,8 @@ public class Habit {
         this.day31 = false;
     }
 
-    public Habit(String name, String year, String month, Boolean day1, Boolean day2, Boolean day3, Boolean day4, Boolean day5, Boolean day6, Boolean day7, Boolean day8, Boolean day9, Boolean day10, Boolean day11, Boolean day12, Boolean day13, Boolean day14, Boolean day15, Boolean day16, Boolean day17, Boolean day18, Boolean day19, Boolean day20, Boolean day21, Boolean day22, Boolean day23, Boolean day24, Boolean day25, Boolean day26, Boolean day27, Boolean day28, Boolean day29, Boolean day30, Boolean day31) {
+    public Habit(String habitNum, String name, String year, String month, Boolean day1, Boolean day2, Boolean day3, Boolean day4, Boolean day5, Boolean day6, Boolean day7, Boolean day8, Boolean day9, Boolean day10, Boolean day11, Boolean day12, Boolean day13, Boolean day14, Boolean day15, Boolean day16, Boolean day17, Boolean day18, Boolean day19, Boolean day20, Boolean day21, Boolean day22, Boolean day23, Boolean day24, Boolean day25, Boolean day26, Boolean day27, Boolean day28, Boolean day29, Boolean day30, Boolean day31) {
+        this.habitNum = habitNum;
         this.name = name;
         this.year = year;
         this.month = month;
@@ -135,6 +138,12 @@ public class Habit {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getHabitNum() { return habitNum; }
+
+    public void setHabitNum(String habitNum) {
+        this.habitNum = habitNum;
     }
 
     public String getName() {
@@ -410,6 +419,7 @@ public class Habit {
     }
 
     public void setDay(Integer dayIn) {
+
         switch (dayIn) {
             case 1:
                 this.day1 = !this.day1;
