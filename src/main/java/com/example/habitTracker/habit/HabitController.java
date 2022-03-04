@@ -32,14 +32,13 @@ public class HabitController {
         habitService.deleteHabit(habitId);
     }
 
-    @PutMapping(path = "{habitId}")
+    @PutMapping(path = "/{year}/{month}/{habitNum}")
     public void updateHabit(
-            @PathVariable("habitId") Long habitId,
-            @RequestParam(required = false) String habitNum,
+            @PathVariable("year") String year,
+            @PathVariable("month") String month,
+            @PathVariable("habitNum") String habitNum,
             @RequestParam(required = false) String name,
-            @RequestParam(required = false) String year,
-            @RequestParam(required = false) String month,
             @RequestParam(required = false) Integer day) {
-        habitService.updateHabit(habitId, habitNum, name, year, month, day);
+        habitService.updateHabit(year, month, habitNum, name, day);
     }
 }

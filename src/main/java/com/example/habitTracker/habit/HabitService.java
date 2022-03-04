@@ -42,14 +42,18 @@ public class HabitService {
     }
 
     @Transactional
-    public void updateHabit(Long habitId, String habitNum, String name, String year, String month, Integer day) {
+    public void updateHabit(String year, String month, String habitNum, String name, Integer day) {
 
         Optional<Habit> habit;
 
         try {
             habit = habitRepository.findHabitByHabitNumAndYearAndMonth(habitNum, year, month);
+            System.out.println(habit);
         } catch (IllegalStateException ise) {
-            System.out.println("habit with id " + habitId + " does not exist!");
+            System.out.println("habit doesn't exist:");
+            System.out.println("habit num: " + habitNum);
+            System.out.println("habit year: " + year);
+            System.out.println("habit month: " + month);
             return;
         }
 
