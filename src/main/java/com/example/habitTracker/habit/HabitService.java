@@ -26,9 +26,15 @@ public class HabitService {
         return habitRepository.findHabitByYearAndMonth(year, month);
     }
 
-    public void addNewHabit(Habit habit) {
-        /* don't allow duplicates? TODO? */
-        habitRepository.save(habit);
+    public void addNewHabits(String year, String month) {
+        for (int i = 1; i <= 3; i++) {
+            Habit habit = new Habit();
+            habit.setHabitNum(Integer.toString(i));
+            habit.setYear(year);
+            habit.setMonth(month);
+            habit.setName("add new");
+            habitRepository.save(habit);
+        }
     }
 
     public void deleteHabit(Long habitId) {

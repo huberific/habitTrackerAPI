@@ -23,8 +23,10 @@ public class HabitController {
     }
 
     @PostMapping
-    public void registerNewHabit(@RequestBody Habit habit) {
-        habitService.addNewHabit(habit);
+    public void registerNewHabits(
+            @RequestParam() String year,
+            @RequestParam() String month) {
+        habitService.addNewHabits(year, month);
     }
 
     @DeleteMapping(path = "{habitId}")
