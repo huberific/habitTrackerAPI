@@ -517,4 +517,38 @@ public class Habit {
         }
 
     }
+
+    public void setAllDaysToFalse() {
+        this.day1 = false;
+        this.day2 = false;
+        this.day3 = false;
+        this.day4 = false;
+        this.day5 = false;
+        this.day6 = false;
+        this.day7 = false;
+        this.day8 = false;
+        this.day9 = false;
+        this.day10 = false;
+        this.day11 = false;
+        this.day12 = false;
+        this.day13 = false;
+        this.day14 = false;
+        this.day15 = false;
+        this.day16 = false;
+        this.day17 = false;
+        this.day18 = false;
+        this.day19 = false;
+        this.day20 = false;
+        this.day21 = false;
+        this.day22 = false;
+        this.day23 = false;
+        this.day24 = false;
+        this.day25 = false;
+        this.day26 = false;
+        this.day27 = false;
+        this.day28 = false;
+        this.day29 = false;
+        this.day30 = false;
+        this.day31 = false;
+        }
 }

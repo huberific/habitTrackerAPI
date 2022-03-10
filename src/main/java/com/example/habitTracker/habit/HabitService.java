@@ -76,6 +76,9 @@ public class HabitService {
                 if (!Objects.equals(habitObj.getName(), name)) {
                     habitObj.setName(name);
                 }
+                if (name.equals("add new")) {
+                   habitObj.setAllDaysToFalse();
+                }
             });
         }
 
